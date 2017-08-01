@@ -14,7 +14,9 @@ security:
             security: false
 
         main:
-            anonymous: ~
+            anonymous: true
+            form_login:
+                login_path: user_security_login
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +24,5 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+    access_control:
+        - { path: "^/admin", role: ROLE_ADMIN }
